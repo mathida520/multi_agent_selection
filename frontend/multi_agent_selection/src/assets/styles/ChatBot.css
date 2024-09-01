@@ -1,0 +1,66 @@
+/* src/assets/styles/ChatBot.css */
+.chatbot-container {
+    width: 500px; /* 设置固定宽度 */
+    height: 600px; /* 设置固定高度 */
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #ffffff; /* 背景颜色 */
+    border-radius: 10px; /* 圆角效果 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影以提升视觉效果 */
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbot-messages {
+    flex: 1; /* 消息区域占据剩余空间 */
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 100%; /* 消息区域最大高度为容器高度 */
+    overflow-y: auto; /* 启用垂直滚动条 */
+    /*background-color: #f9f9f9;*/
+    border: none; /* 去除边框 */
+}
+
+.message {
+    margin: 10px 0;
+}
+
+.message.user {
+    text-align: right;
+}
+
+.message.bot {
+    text-align: left;
+}
+
+.message-content {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message.user .message-content {
+    background-color: #DCF8C6;
+}
+
+.message.bot .message-content {
+    background-color: #E5E5EA;
+}
+
+.chatbot-input {
+    width: calc(100% - 60px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.chatbot-send-button {
+    width: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    margin-left: 10px;
+}

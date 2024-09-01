@@ -1,0 +1,53 @@
+/* src/assets/styles/Message.css */
+
+.message {
+    margin: 10px 0;
+    max-width: 100%; /* 确保消息不会超出容器宽度 */
+    word-wrap: break-word; /* 确保长单词能够在行末适当地换行 */
+}
+
+.message.user {
+    text-align: left !important; /* 用户消息左对齐 */
+}
+
+.message.bot {
+    text-align: right !important; /* AI消息右对齐 */
+}
+
+.message-content {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    white-space: normal; /* 使文本在行末自动换行 */
+}
+
+.message.user .message-content {
+    background-color: #DCF8C6; /* 用户消息背景色（浅绿色） */
+}
+
+.message.bot .message-content {
+    background-color: #E5E5EA; /* AI消息背景色（浅灰色） */
+}
+
+.message.bot .message-content-wrapper {
+    position: relative; /* 确保子元素可以基于这个容器定位 */
+}
+
+.message.bot .toggle-button {
+    position: sticky;
+    bottom: 0;
+    width: 50%; /* 使按钮宽度与消息内容一致 */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* 按钮居中对齐 */
+    margin-top: 5px; /* 增加按钮与消息内容之间的间距 */
+}
+
+.message.bot .toggle-button:hover {
+    background-color: #0056b3;
+}

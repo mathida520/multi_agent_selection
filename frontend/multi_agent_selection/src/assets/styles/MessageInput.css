@@ -1,0 +1,27 @@
+/* src/assets/styles/MessageInput.css */
+
+.message-input-container {
+    margin-top: 10px;
+}
+
+.message-input-field {
+    width: calc(100% - 60px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.message-send-button {
+    width: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.message-send-button:hover {
+    background-color: #0056b3;
+}
