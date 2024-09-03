@@ -1,6 +1,5 @@
-// src/hooks/useChatBot.js
 import {useState} from 'react';
-import {sendMessageToAPI} from '../utils/api';
+import {sendMessageToAPI} from '../api/backend';
 
 function useChatBot() {
     const [messages, setMessages] = useState([]);
