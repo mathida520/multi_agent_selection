@@ -1,6 +1,7 @@
 // src/components/MessageInput.js
 import React, {useState} from 'react';
 import '../assets/styles/MessageInput.css'
+import imglogo from "../img/Vector.png"
 
 function MessageInput({onSendMessage}) {
     const [input, setInput] = useState('');
@@ -23,10 +24,10 @@ function MessageInput({onSendMessage}) {
                 value={input}
                 onChange={handleInputChange}
                 className="message-input-field"
-                placeholder="Type your message here..."
+                placeholder="Anything I can help you do?"
             />
             <button onClick={handleSendMessage} className="message-send-button">
-                Send
+            <img src={imglogo} alt="imglogo" style={{width:"13px",marginLeft:"5px"}}/> 
             </button>
         </div>
     );
