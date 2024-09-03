@@ -8,7 +8,7 @@ python app.py &
 FLASK_PID=$!
 
 cd $CODE_PATH/frontend || exit
- npm install
+npm install
 npm start &
 
 REACT_PID=$!
