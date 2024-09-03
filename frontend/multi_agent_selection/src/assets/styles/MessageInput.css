@@ -5,10 +5,15 @@
 }
 
 .message-input-field {
-    width: calc(100% - 60px);
+    /* width: calc(100% - 60px); */
+    width: 85%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    background-color: #d1d2d1;
+    text-align: center;
+    color: #000;
+    margin:0 auto
 }
 
 .message-send-button {
@@ -16,12 +21,13 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
-    background-color: #007BFF;
+    background-color: #d1d2d1;
     color: #fff;
     margin-left: 10px;
     cursor: pointer;
+    float:right;
 }
 
 .message-send-button:hover {
-    background-color: #0056b3;
+    background-color: #d1d2d1;
 }

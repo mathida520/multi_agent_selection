@@ -1,10 +1,10 @@
 /* src/assets/styles/ChatBot.css */
 .chatbot-container {
-    width: 500px; /* 设置固定宽度 */
+    width: 600px; /* 设置固定宽度 */
     height: 600px; /* 设置固定高度 */
     padding: 20px;
     margin: 0 auto;
-    background-color: #ffffff; /* 背景颜色 */
+    background-color: #fff; /* 背景颜色 */
     border-radius: 10px; /* 圆角效果 */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影以提升视觉效果 */
     display: flex;
@@ -40,7 +40,7 @@
 }
 
 .message.user .message-content {
-    background-color: #DCF8C6;
+    background-color: #E5E5EA;
 }
 
 .message.bot .message-content {
@@ -60,7 +60,7 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
-    background-color: #007BFF;
+    background-color: #fff;
     color: #fff;
     margin-left: 10px;
 }
