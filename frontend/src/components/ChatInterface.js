@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
-import useChatBot from './useChatBot';
-import './chatInterface.css';
+import useChatBot from './UseChatBot';
+import './ChatInterface.css';
 import {animateScroll} from 'react-scroll';
 
 
