@@ -30,19 +30,32 @@
 ```json
 [
   {
-    "agentName": "Agent 1",
+    "model": "Agent 1",
     "message": "This is the first message from Agent 1.",
     "color": "#f1c40f"
   },
   {
-    "agentName": "Agent 2",
+    "model": "Agent 2",
     "message": "This is a message from Agent 2.",
     "color": "#2ecc71"
   },
   {
-    "agentName": "Agent 3",
+    "model": "Agent 3",
     "message": "This is a message from Agent 3.",
     "color": "#e74c3c"
   }
 ]
+```
+
+## 请求
+
+```json
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello, how are you"
+    }
+  ]
+}
 ```

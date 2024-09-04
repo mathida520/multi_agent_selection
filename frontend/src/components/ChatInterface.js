@@ -100,10 +100,10 @@ function Message({messages, from}) {
                             {msg.message}
                         </div>
 
-                        {/* 如果消息是AI的，展示 agentName 在底部 */}
+                        {/* 如果消息是AI的，展示 model 在底部 */}
                         {from === 'bot' && (
                             <div className="message-agent-name">
-                                Provided by {msg.agentName}
+                                Provided by {msg.model}
                             </div>
                         )}
                     </div>

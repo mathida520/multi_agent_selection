@@ -78,11 +78,11 @@
     white-space: normal; /* 使文本在行末自动换行 */
     max-width: 70%; /* 限制每条消息的最大宽度为消息框宽度的一半 */
     transition: opacity 0.5s ease-in-out; /* 透明度平滑过渡 */
-    position: relative; /* 用于定位 agentName */
+    position: relative; /* 用于定位 model */
 }
 
 .message-body {
-    margin-bottom: 0; /* 给 agentName 留出一些底部空间 */
+    margin-bottom: 0; /* 给 model 留出一些底部空间 */
 }
 
 .message-agent-name {
@@ -90,7 +90,7 @@
     bottom: 5px;
     left: 10px;
     font-size: 12px;
-    color: #555; /* 设置 agentName 的颜色 */
+    color: #555; /* 设置 model 的颜色 */
 }
 
 /* 用户消息左对齐 */
@@ -102,6 +102,7 @@
 
 /* AI消息右对齐 */
 .message.bot .message-content {
+    min-width: 120px;
     background-color: #efeeee;
     text-align: right; /* 确保右对齐 */
     margin-left: auto; /* 确保AI消息靠右 */

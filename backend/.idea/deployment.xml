@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="ec2-user" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="ec2-user">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ec2-user/flaskApp" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

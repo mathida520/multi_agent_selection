@@ -9,7 +9,7 @@ function useChatBot() {
             const userMessage = {
                 from: 'user',
                 messages: [
-                    {agentName: "User", message: input}
+                    {model: "User", message: input}
                 ]
             };
             setMessages((prevMessages) => [...prevMessages, userMessage]);

@@ -1,11 +1,18 @@
 export const sendMessageToAPI = async (input) => {
   try {
-    const response = await fetch('http://127.0.0.1:5000/agents', {
+    const response = await fetch('http://18.140.117.184:11435/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ message: input }),
+      body: JSON.stringify({
+        messages: [
+          {
+            role: 'user',
+            content: input
+          }
+        ]
+      }),
     });
 
     if (!response.ok) {
