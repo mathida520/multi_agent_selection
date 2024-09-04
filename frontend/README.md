@@ -26,20 +26,23 @@
 # message 参数格式
 
 ## 响应
-
+没有color时默认为灰色
 ```json
 [
   {
     "agentName": "Agent 1",
-    "message": "This is the first message from Agent 1."
+    "message": "This is the first message from Agent 1.",
+    "color": "#f1c40f"
   },
   {
     "agentName": "Agent 2",
-    "message": "This is a message from Agent 2."
+    "message": "This is a message from Agent 2.",
+    "color": "#2ecc71"
   },
   {
     "agentName": "Agent 3",
-    "message": "This is a message from Agent 3."
+    "message": "This is a message from Agent 3.",
+    "color": "#e74c3c"
   }
 ]
 ```
