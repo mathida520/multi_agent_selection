@@ -70,7 +70,8 @@
 }
 
 .message-content {
-    display: inline-block;
+    display: block;
+    width: fit-content; /* 根据内容自适应宽度 */
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -92,12 +93,18 @@
     color: #555; /* 设置 agentName 的颜色 */
 }
 
+/* 用户消息左对齐 */
 .message.user .message-content {
-    background-color: #D2D1D1; /* 用户消息背景色 */
+    background-color: #D2D1D1;
+    text-align: left; /* 确保左对齐 */
+    margin-left: 0; /* 可以设置具体值以调整位置 */
 }
 
+/* AI消息右对齐 */
 .message.bot .message-content {
-    background-color: #efeeee; /* AI消息背景色 */
+    background-color: #efeeee;
+    text-align: right; /* 确保右对齐 */
+    margin-left: auto; /* 确保AI消息靠右 */
 }
 
 
