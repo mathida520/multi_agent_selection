@@ -81,7 +81,7 @@
 }
 
 .message-body {
-    margin-bottom: 20px; /* 给 agentName 留出一些底部空间 */
+    margin-bottom: 0; /* 给 agentName 留出一些底部空间 */
 }
 
 .message-agent-name {

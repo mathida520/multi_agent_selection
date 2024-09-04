@@ -94,6 +94,7 @@ function Message({messages, from}) {
                             backgroundColor: msg.color,
                             opacity: visibility[index] || 0, // 根据可见比例设置透明度
                             transition: 'opacity 0.5s', // 平滑过渡
+                            paddingBottom: from === 'bot' ? '20px' : '10px', // 只为AI消息留出底部空间
                         }}>
                         <div className="message-body">
                             {msg.message}
