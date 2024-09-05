@@ -27,8 +27,9 @@
     margin-left: -50px;
     cursor: pointer;
     float: right;
-    position: absolute;
-    bottom: 7.2%;  
+    position: relative;
+    bottom: -5px;  
+    right: 22px;
 }
 
 .message-send-button:hover {
