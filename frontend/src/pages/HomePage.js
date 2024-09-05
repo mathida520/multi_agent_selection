@@ -11,8 +11,9 @@ function HomePage() {
     };
 
     const handleSearch = () => {
-        if (input.trim()) { // 检查输入不为空
-            navigate('/c'); // 跳转到 ChatPage
+        if (input.trim()) {
+            // navigate('/c');
+            navigate(`/c?query=${encodeURIComponent(input)}`);
         }
     };
 
