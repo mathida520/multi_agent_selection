@@ -1,5 +1,6 @@
 import json
 import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from openai import OpenAI
 
@@ -28,25 +29,33 @@ def get_local_response(request_json):
 
     return response.json()
 
-    
+
+def fetch_api_response(model, config, msgs):
+    client = OpenAI(
+        api_key=config['api_key'],
+        base_url=config['base_url'],
+    )
+    completion = client.chat.completions.create(
+        model=model,
+        messages=msgs,
+    )
+    return {
+        'model': model,
+        'response': completion.to_dict()
+    }
+
+
 def fetch_api_responses(msgs):
     responses = []
 
     with open('../../configs/api.json', 'r') as file:
         models = json.load(file)
 
-    for model, config in models.items():
-        client = OpenAI(
-            api_key=config['api_key'],
-            base_url=config['base_url'],
-        )
-        completion = client.chat.completions.create(
-            model=model,
-            messages=msgs,
-        )
-        responses.append({
-            'model': model,
-            'response': completion.to_dict()
-        })
+    with ThreadPoolExecutor(max_workers=len(models)) as executor:
+        future_to_model = {
+            executor.submit(fetch_api_response, model, config, msgs): model for model, config in models.items()
+        }
+        for future in as_completed(future_to_model):
+            responses.append(future.result())
 
     return responses
