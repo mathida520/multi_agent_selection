@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import requests
 from Tools import tools, Tools
 from flask_cors import CORS
+from multi_llm_responses import get_responses, extract_and_format_response_thridParty
 
 Tools = Tools()
 
@@ -35,13 +36,14 @@ def chatCompletionRequest():
 
     url = "http://localhost:11434/api/chat"
     response = requests.post(url, headers=headers, json=data)
-
     response_json = response.json()
     formatted_data = extract_and_format_response(response_json)
+    formatted_data.extend(extract_and_format_response_thridParty(get_responses(data.get("messages"))))
+    
+
     return jsonify(formatted_data)
     # return response.text
     # return data
-
 
 def extract_and_format_response(response_json):
     """
@@ -68,6 +70,9 @@ def extract_and_format_response(response_json):
         "message": content,
         "color": color
     }]
+
+
+
 
 
 if __name__ == '__main__':

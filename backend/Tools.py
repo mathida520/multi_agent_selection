@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 class Tools:
     def __init__(self) -> None:
-        with open(r"./thirdPartyAPI.json", 'r') as file:
+        with open(r"./api.json", 'r') as file:
             self.data = json.load(file)
 
     # send request
@@ -77,6 +77,9 @@ class Tools:
         
         return results
     
+
+
+
     def dev_pic_generation(self, ):
         data = [
             {

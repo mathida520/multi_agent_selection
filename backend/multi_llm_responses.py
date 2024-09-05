@@ -26,13 +26,13 @@ def get_responses(msgs):
     return responses
 
 
-def extract_and_format_response(responses):
+def extract_and_format_response_thridParty(responses):
     msgs = []
     color = '#3498db'
 
     for response in responses:
         msgs.append({
-            'model': response['model'],
+            'model': response.get("model", "Agent 1"),
             'message': response['response']['choices'][0]['message']['content'],
             'color': color,
         })
