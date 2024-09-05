@@ -39,7 +39,7 @@
 /* src/assets/styles/ChatBot.css */
 .chatbot-container {
     width: 600px; /* 设置固定宽度 */
-    height: 660px; /* 设置固定高度 */
+    height: 85vh; /* 设置固定高度 */
     padding: 20px;
     margin: 0 auto;
     background-color: #fff; /* 背景颜色 */
@@ -47,7 +47,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影以提升视觉效果 */
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
+    margin-top: 5vh;
 }
 
 .chatbot-messages {
