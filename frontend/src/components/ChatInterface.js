@@ -1,8 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
+import {animateScroll} from 'react-scroll';
+import { useLocation } from 'react-router-dom';
 import useChatBot from './UseChatBot';
 import './ChatInterface.css';
-import {animateScroll} from 'react-scroll';
-
 
 function MessageInput({onSendMessage}) {
     const [input, setInput] = useState('');
@@ -118,15 +118,26 @@ function Message({messages, from}) {
     );
 }
 
-
 function ChatBot() {
-    const {messages, handleSendMessage} = useChatBot();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const inputQuery = queryParams.get('query');
 
-    // Scroll to bottom whenever messages update
+    const { messages, handleSendMessage } = useChatBot();
+    const sentRef = useRef(false);
+
+    useEffect(() => {
+        if (inputQuery && !sentRef.current) {
+            handleSendMessage(inputQuery);
+            sentRef.current = true;
+        }
+    }, [inputQuery]);
+
+    // 滚动到底部的效果
     useEffect(() => {
         animateScroll.scrollToBottom({
             containerId: 'chatbot-messages',
-            duration: 100, // smooth scroll duration in ms
+            duration: 100,
         });
     }, [messages]);
 
