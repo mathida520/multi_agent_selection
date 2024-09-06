@@ -20,9 +20,7 @@ function HomePage() {
     return (
         <div className="home-container">
             <h1 className="title">Multi-agent comparison and collaboration system</h1>
-            <h2 className="subtitle">Select and orchestrate 100+ AI agents and applications to better finish your tasks
-                and meet your demands
-            </h2>
+            <h2 className="subtitle">Select and orchestrate 100+ AI agents and applications to better finish your tasks and meet your demands</h2>
             <div className="icons">
                 <img src='/images/image 16.png' alt="icon1"/>
                 <img src='/images/image 17.png' alt="icon2"/>
