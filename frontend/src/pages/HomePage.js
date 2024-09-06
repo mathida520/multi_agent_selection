@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 
 function HomePage() {
-    const navigate = useNavigate(); // 使用 useNavigate 钩子
+    const navigate = useNavigate();
     const [input, setInput] = useState('');
 
     const handleInputChange = (e) => {
-        setInput(e.target.value); // 更新输入状态
+        setInput(e.target.value);
     };
 
     const handleSearch = () => {
@@ -40,13 +40,22 @@ function HomePage() {
                 />
                 <button onClick={handleSearch} className="search-button">🔍</button>
             </div>
-            <div className="example-queries">
-                <button className="query-button">Help me settle down a trip next week to NYC</button>
-                <button className="query-button">Help me order a restaurant for tonight's family gathering</button>
-                <button className="query-button">Help me prepare for my interview with John tomorrow</button>
-                <button className="query-button">Invest my existing account balance based on the performance of
-                    yesterday's trading strategy
-                </button>
+            <div className="example-container">
+                <div className="example-title">For example:</div>
+                <div className="example-queries">
+                    <div className="query-wrapper left">
+                        <button className="query-button">Help me settle down a trip next week to NYC</button>
+                    </div>
+                    <div className="query-wrapper right">
+                        <button className="query-button">Help me order a restaurant for tonight's family gathering</button>
+                    </div>
+                    <div className="query-wrapper left">
+                        <button className="query-button">Help me prepare for my interview with John tomorrow</button>
+                    </div>
+                    <div className="query-wrapper right">
+                        <button className="query-button">Invest my existing account balance based on the performance of yesterday's trading strategy</button>
+                    </div>
+                </div>
             </div>
         </div>
     );
