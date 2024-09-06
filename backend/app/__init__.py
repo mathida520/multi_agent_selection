@@ -1,5 +1,3 @@
-from dotenv import load_dotenv
-
 from flask import Flask
 from flask_cors import CORS
 
@@ -12,5 +10,4 @@ def create_app():
 
     flask_app.register_blueprint(chat_bp)
 
-    load_dotenv()
     return flask_app
