@@ -1,0 +1,20 @@
+{
+    "agent1":{
+        "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTkyNjk4YTYtNmUwNy00YTg0LWI3ZTctNDI4ODM3NTJiMGE0IiwidHlwZSI6ImFwaV90b2tlbiJ9.Jkas-y2mUox8579s19_cRvmJygOxO8ozPixY7-gg5h4",
+        "url": "https://api.edenai.run/v2/text/plagia_detection",
+        "payload": {
+            "providers": "openai,stabilityai",
+            "resolution": "1024x1024",
+            "text": ""
+        }
+    },
+    "agent2":{
+        "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTkyNjk4YTYtNmUwNy00YTg0LWI3ZTctNDI4ODM3NTJiMGE0IiwidHlwZSI6ImFwaV90b2tlbiJ9.Jkas-y2mUox8579s19_cRvmJygOxO8ozPixY7-gg5h4",
+        "url": "https://api.edenai.run/v2/text/plagia_detection",
+        "payload": {
+            "providers": "openai,stabilityai",
+            "resolution": "1024x1024",
+            "text": ""
+        }
+    }
+}
