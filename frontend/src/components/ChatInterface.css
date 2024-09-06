@@ -1,0 +1,154 @@
+.message-input-container {
+    margin-top: 10px;
+}
+
+.message-input-field {
+    /* width: calc(100% - 60px); */
+    width: 85%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #d1d2d1;
+    text-align: center;
+    color: #000;
+    margin: 0 auto
+}
+
+.message-send-button {
+    width: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    /* background-color: #d1d2d1; */
+    background-color: rgba(0,152,50,0.0);
+    color: #fff;
+    margin-left: -50px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    bottom: -5px;  
+    right: 22px;
+}
+
+.message-send-button:hover {
+    background-color: #d1d2d1;
+}
+
+/* src/assets/styles/ChatBot.css */
+.chatbot-container {
+    width: 600px; /* 设置固定宽度 */
+    height: 85vh; /* 设置固定高度 */
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #fff; /* 背景颜色 */
+    border-radius: 10px; /* 圆角效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影以提升视觉效果 */
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.chatbot-messages {
+    flex: 1; /* 消息区域占据剩余空间 */
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 100%; /* 消息区域最大高度为容器高度 */
+    overflow-y: auto; /* 启用垂直滚动条 */
+    /*background-color: #f9f9f9;*/
+    border: none; /* 去除边框 */
+}
+
+.message {
+    margin: 10px 0;
+    max-width: 100%; /* 确保消息不会超出容器宽度 */
+    word-wrap: break-word; /* 确保长单词能够在行末适当地换行 */
+}
+
+.message.user {
+    text-align: left; /* 用户消息左对齐 */
+}
+
+.message.bot {
+    text-align: right; /* AI消息右对齐 */
+}
+
+.message-content {
+    display: block;
+    width: fit-content; /* 根据内容自适应宽度 */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    white-space: normal; /* 使文本在行末自动换行 */
+    max-width: 70%; /* 限制每条消息的最大宽度为消息框宽度的一半 */
+    transition: opacity 0.5s ease-in-out; /* 透明度平滑过渡 */
+    position: relative; /* 用于定位 model */
+}
+
+.message-body {
+    margin-bottom: 0; /* 给 model 留出一些底部空间 */
+    text-align: left;
+}
+
+.message-agent-name {
+    position: absolute; /* 根据最近的相对定位父元素（message-content）进行定位 */
+    bottom: 5px;
+    left: 10px;
+    font-size: 12px;
+    color: #555; /* 设置 model 的颜色 */
+}
+
+/* 用户消息左对齐 */
+.message.user .message-content {
+    background-color: #D2D1D1;
+    text-align: left; /* 确保左对齐 */
+    margin-left: 0; /* 可以设置具体值以调整位置 */
+}
+
+/* AI消息右对齐 */
+.message.bot .message-content {
+    min-width: 120px;
+    background-color: #efeeee;
+    text-align: right; /* 确保右对齐 */
+    margin-left: auto; /* 确保AI消息靠右 */
+}
+
+
+.message.bot .message-content-wrapper {
+    position: relative; /* 确保子元素可以基于这个容器定位 */
+}
+
+.message.bot .toggle-button {
+    position: sticky;
+    bottom: 0;
+    width: 50%; /* 使按钮宽度与消息内容一致 */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* 按钮居中对齐 */
+    margin-top: 5px; /* 增加按钮与消息内容之间的间距 */
+}
+
+.message.bot .toggle-button:hover {
+    background-color: #0056b3;
+}
+
+.chatbot-input {
+    width: calc(100% - 60px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.chatbot-send-button {
+    width: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+    color: #fff;
+    margin-left: 10px;
+}
