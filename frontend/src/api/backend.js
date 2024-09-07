@@ -1,5 +1,7 @@
 export const sendMessageToAPI = async (input) => {
-  const apiUrl = process.env.REACT_APP_BACK_URL_1;
+  const baseUrl = process.env.REACT_APP_BACK_URL_1;
+  const endpoint = "/chat";
+  const apiUrl = `${baseUrl}${endpoint}`;
   try {
     const response = await fetch(apiUrl, {
       method: 'POST',
