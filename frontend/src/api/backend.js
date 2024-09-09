@@ -1,6 +1,9 @@
 export const sendMessageToAPI = async (input) => {
+  const baseUrl = process.env.REACT_APP_BACK_URL_1;
+  const endpoint = "/chat";
+  const apiUrl = `${baseUrl}${endpoint}`;
   try {
-    const response = await fetch('http://18.140.117.184:11435/chat', {
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -19,8 +22,7 @@ export const sendMessageToAPI = async (input) => {
       throw new Error('Network response was not ok');
     }
 
-    const data = await response.json();
-    return data;  // 假设Flask后端返回的是与之前格式一致的数组对象
+    return await response.json();
   } catch (error) {
     console.error('Error in sendMessageToAPI:', error);
     return [];

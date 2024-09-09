@@ -44,36 +44,36 @@ function Message({messages, from}) {
 
     // 初始化 IntersectionObserver
     useEffect(() => {
+        const currentMessageRefs = messageRefs.current; // 在 effect 内部创建一个局部变量
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                // 根据消息在视口中的可见比例设置透明度
                 setVisibility((prev) => ({
                     ...prev,
                     [entry.target.dataset.index]: entry.intersectionRatio,
                 }));
             });
         }, {
-            root: null, // 设置 root 为 null，表示在视口内观察
+            root: null,
             rootMargin: '0px',
-            threshold: Array.from({length: 11}, (_, i) => i / 10), // 设置多个阈值以捕获渐变透明度
+            threshold: Array.from({length: 11}, (_, i) => i / 10),
         });
 
-        // 观察所有消息
-        messageRefs.current.forEach((message) => {
+        currentMessageRefs.forEach((message) => {
             if (message) {
                 observer.observe(message);
             }
         });
 
-        // 清除 observer
         return () => {
-            messageRefs.current.forEach((message) => {
+            currentMessageRefs.forEach((message) => {
                 if (message) {
                     observer.unobserve(message);
                 }
             });
         };
-    }, [messages, expanded]); // 监听 expanded，确保展开的消息也能被观察
+    }, [messages, expanded]);
+
 
     const handleToggle = () => {
         setExpanded(!expanded);
