@@ -1,5 +1,5 @@
 #!/bin/bash
-PROJECT_PATH=/Users/ronglong/Documents/multi_agent_selection
+PROJECT_PATH=...
 
 export PYTHONPATH=$PROJECT_PATH
 
