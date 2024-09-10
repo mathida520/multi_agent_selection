@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
+import React, {memo, useCallback, useEffect, useRef, useState} from 'react';
 import { animateScroll } from 'react-scroll';
 import { useLocation } from 'react-router-dom';
 import useConversation from '../hooks/useConversation';
@@ -34,25 +34,11 @@ const MessageInput = memo(({ onSendMessage }) => {
     );
 });
 
+
 const Message = memo(({ messages, from }) => {
     const [expanded, setExpanded] = useState(false);
     const [visibility, setVisibility] = useState({});
     const messageRefs = useRef([]);
-    const [scrollPosition, setScrollPosition] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollPosition(window.scrollY);
-            // 设定滚动到200像素时展开消息
-            if (window.scrollY > 200) setExpanded(true);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
