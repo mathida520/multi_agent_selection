@@ -3,9 +3,9 @@ import json
 
 from flask import jsonify
 
-from backend.app.services.generation import fetch_api_responses, get_local_response
-from backend.app.services.msg_handler import process_msgs
-from backend.app.services.ranking import rerank_models, rerank_responses
+from app.services.generation import fetch_api_responses, get_local_response
+from app.services.msg_handler import process_msgs
+from app.services.ranking import rerank_models, rerank_responses
 
 API_CONFIG_PATH = os.getenv('API_CONFIG_PATH')
 

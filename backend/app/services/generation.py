@@ -9,7 +9,10 @@ from openai.lib.azure import AzureOpenAI
 # from backend.configs import tools
 
 
-API_CONFIG_PATH = os.getenv('API_CONFIG_PATH')
+relative_config_path = os.getenv('API_CONFIG_PATH')
+# 将相对路径转换为绝对路径
+API_CONFIG_PATH = os.path.abspath(relative_config_path)
+
 LOCAL_CHAT_URL = os.getenv('LOCAL_CHAT_URL')
 
 

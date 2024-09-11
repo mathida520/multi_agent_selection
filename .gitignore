@@ -6,3 +6,4 @@ package-lock.json
 backend/app/__pycache__/
 api.json
 build/
+frontend/.env*
