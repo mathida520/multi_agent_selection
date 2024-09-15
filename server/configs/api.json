@@ -1,0 +1,22 @@
+{
+  "llama-13b-chat": {
+    "url": "https://api.llama-api.com",
+    "api_key": "LA-4ca875fae78146c0a40ab1cd32340fba416d9dd0ae2d435db2621e66e1487b5e",
+    "option": null
+  },
+  "llama-70b-chat": {
+    "url": "https://api.llama-api.com",
+    "api_key": "LA-4ca875fae78146c0a40ab1cd32340fba416d9dd0ae2d435db2621e66e1487b5e",
+    "option": null
+  },
+  "azure-gpt-4o": {
+    "url": "https://hkust.azure-api.net",
+    "api_key": "54e03705aab340a0aba0450c72daa626",
+    "option": "2024-06-01"
+  },
+    "azure-gpt-4-turbo": {
+    "url": "https://hkust.azure-api.net",
+    "api_key": "54e03705aab340a0aba0450c72daa626",
+    "option": "2024-05-01-preview"
+  }
+}
