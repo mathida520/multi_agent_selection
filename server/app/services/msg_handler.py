@@ -8,18 +8,20 @@ def process_msgs(responses: List[Dict]) -> List[Dict]:
     colors = ["#B5D9FE", "#F9C2C2", "#FFE195"]
 
     for response in responses:
-        model = response["model"]
+        model = response.get("model", "")
         color = random.choice(colors)
         if model == "llama3.1":
             msgs.append({
                 "model": model,
-                "message": response["message"]["content"],
+                "message": response.get("message", {}).get("content", ""),
+                'images': response.get('images', []),
                 "color": color
             })
         else:
             msgs.append({
                 'model': model,
-                'message': response['response']['choices'][0]['message']['content'],
+                'message': response.get('response', {}).get('choices', [{}])[0].get('message', {}).get('content', ""),
+                'images': response.get('response', {}).get('choices', [{}])[0].get('images', []),
                 'color': color,
             })
     return msgs

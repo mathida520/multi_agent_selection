@@ -1,8 +1,8 @@
 from typing import List, Dict
 
 import os
-import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from RequestHandler import RequestHandler
 
 from openai import OpenAI
 from openai.lib.azure import AzureOpenAI
@@ -16,20 +16,16 @@ LOCAL_CHAT_URL = os.getenv('LOCAL_CHAT_URL')
 def get_local_response(request_json: Dict) -> Dict:
     payload = {
         "model": "llama3.1",
-        "messages": request_json["messages"],
+        "messages": request_json.get("message", ""),
         "stream": False,
         "options": {
             "seed": 101,
             "temperature": 0
         },
     }
-    response = requests.post(
-        LOCAL_CHAT_URL,
-        headers={"Content-Type": "application/json"},
-        json=payload
-    )
-
-    return response.json()
+    response = RequestHandler.post(LOCAL_CHAT_URL, headers={"Content-Type": "application/json"}, json=payload, timeout = 10)
+    
+    return response
 
 
 def fetch_api_response(model, api_key, url, option, msgs) -> Dict:
@@ -52,20 +48,7 @@ def fetch_api_response(model, api_key, url, option, msgs) -> Dict:
             model=model,
             messages=msgs,
         ).to_dict()
-    # completion = {
-    #     "id": "zxc",
-    #     "object": "chat.completion",
-    #     "created": 777,
-    #     "model": model,
-    #     "choices": [
-    #         {
-    #             "index": 0,
-    #             "finish_reason": "stop",
-    #             "message": {"role": "assistant", "content": "Hi!"}
-    #         }
-    #     ],
-    #     "usage": {"completion_tokens": 109, "prompt_tokens": 24, "total_tokens": 133}
-    # }
+
     return {
         'model': model,
         'response': completion
