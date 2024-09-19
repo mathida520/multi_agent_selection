@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from .services.generation import fetch_api_responses,  fetch_api_response
 from .services.msg_handler import process_msgs
 from .services.ranking import rerank_models, rerank_responses
-
+from .services.task_handler import task_classification
 #### 这个鬼地方别动
 load_dotenv()
 API_CONFIG_PATH = os.path.join(os.getenv('API_CONFIG_PATH'))
@@ -60,3 +60,14 @@ def request_all_responses(models_info: Dict, request_json: Dict):
     responses = rerank_responses(responses)
 
     return responses
+
+
+def task_classify(request_json: Dict):
+    content = request_json["messages"][0]["content"]
+    return task_classification(content)
+
+# todo 需要添加根据任务类型获取模型名字列表的逻辑
+def get_models(task_typs):
+    models_info = get_models_dict()
+    models = list(models_info.keys())
+    return models
