@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 
 from .services.generation import get_local_response
-from .views import gen_primary, gen_auxi, task_classify, get_models
+from .views import gen_primary, gen_auxi, task_classify, get_models, gen_batch
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -20,6 +20,10 @@ def generate_primary():
 @api_bp.route("/gen/auxi", methods=["POST"])
 def generate_auxiliary():
     return gen_auxi(request.get_json())
+
+@api_bp.route("/gen/batch", methods=["POST"])
+def generate_batch_answers():
+    return gen_batch(request.get_json())
 
 @api_bp.route("/test/chat", methods=["POST"])
 def test():

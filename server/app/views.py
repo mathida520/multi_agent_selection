@@ -51,8 +51,31 @@ def gen_auxi(request_json: Dict):
         request_json["messages"]
     )
     responses = process_msgs([responses])
-
     return responses
+
+# todo 还没有对答案排序
+def gen_batch(request_json: Dict):
+    models_info = get_models_dict()
+    model_names = request_json["modelNames"]
+    responses=[]
+    for model_name in model_names:
+        if model_name not in models_info:
+            raise ValueError(f"Model {model_name} not found in models_info")
+        else:
+            model_info = models_info[model_name]
+            response = fetch_api_response(
+                model_name,
+                model_info["api_key"],
+                model_info["url"],
+                model_info["option"],
+                request_json["messages"]
+            )
+            responses.append(response)
+
+    responses = process_msgs(responses)
+    return responses
+
+
 
 
 def request_all_responses(models_info: Dict, request_json: Dict):
