@@ -72,7 +72,7 @@ def gen_batch(request_json: Dict):
             )
             responses.append(response)
 
-    responses = resort_msgs(responses,request_json["messages"]["content"])
+    responses = resort_msgs(responses,request_json["messages"][0]["content"])
     return responses
 
 
