@@ -33,7 +33,7 @@ class RequestHandler:
                 return {"error": "Unsupported HTTP method"}
 
             response.raise_for_status()
-            return response.json()
+            return response
 
         except requests.exceptions.Timeout:
             return {"error": "Request timed out"}
@@ -43,3 +43,46 @@ class RequestHandler:
             return {"error": f"HTTP error occurred: {http_err}"}
         except Exception as err:
             return {"error": f"An error occurred: {err}"}
+        
+if __name__ == "__main__":
+    headers = {
+        "Authorization": "Bearer OhkOjKABesrD2A3f24bBDNkyj9qr5LDW3PLdTtY-"
+    }
+    payload = {
+        "prompt": "cyberpunk cat"
+    }
+    completion = RequestHandler.post("https://api.cloudflare.com/client/v4/accounts/5eccfadce82e2e37f4dba158506a75a9/ai/run/@cf/stabilityai/stable-diffusion-xl-base-1.0", 
+                                     headers=headers, 
+                                     json=payload, 
+                                     timeout=600)
+    
+    print(completion)
+
+    # import http.client
+    # import json
+
+    # # Correct host without 'https://'
+    # conn = http.client.HTTPSConnection("api.cloudflare.com")
+
+    # # Your payload
+    # payload = json.dumps({
+    #     "prompt": "cyberpunk cat"
+    # })
+
+    # # Headers
+    # headers = {
+    #     'Authorization': 'Bearer OhkOjKABesrD2A3f24bBDNkyj9qr5LDW3PLdTtY-',  # Add your correct bearer token
+    #     'Content-Type': 'application/json'
+    # }
+
+    # # Making the POST request
+    # conn.request("POST", "/client/v4/accounts/5eccfadce82e2e37f4dba158506a75a9/ai/run/@cf/lykon/dreamshaper-8-lcm", payload, headers)
+
+    # # Getting the response
+    # res = conn.getresponse()
+    # data = res.read()
+    # with open('output_image.png', 'wb') as f:
+    #     f.write(data)
+    # # Print the result
+
+    

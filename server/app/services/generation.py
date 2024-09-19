@@ -7,6 +7,7 @@ from openai import OpenAI
 from openai.lib.azure import AzureOpenAI
 
 from app.services.RequestHandler import RequestHandler
+from app.services.task_handler import PICTURE_GENERATION
 
 API_CONFIG_PATH = os.getenv('API_CONFIG_PATH')
 LOCAL_CHAT_URL = os.getenv('LOCAL_CHAT_URL')
@@ -45,26 +46,39 @@ def get_local_response(request_json: Dict, tools: list = []) -> Dict:
     return response
 
 
-def fetch_api_response(model, api_key, url, option, msgs) -> Dict:
-    if "azure" in model:
-        client = AzureOpenAI(
-            api_key=api_key,
-            api_version=option,
-            azure_endpoint=url,
-        )
-        completion = client.chat.completions.create(
-            model=model.replace("azure-", ""),
-            messages=msgs,
-        ).to_dict()
+def fetch_api_response(model, api_key, url, option, msgs, task) -> Dict:
+    # currently, only 2 missions: {PICTURE_GENERATION, general_chat}
+    # the models used for these missions are different, no intersect. So at current stage, we use if else to construct payloads for different missions
+    # TODO: encapulate a logic for payload generation based on mission type
+    if task == PICTURE_GENERATION:
+        payload = {
+            "prompt": msgs
+        }
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        }
+        completion = RequestHandler.post(url, headers=headers, json=payload, timeout=10)
     else:
-        client = OpenAI(
-            api_key=api_key,
-            base_url=url,
-        )
-        completion = client.chat.completions.create(
-            model=model,
-            messages=msgs,
-        ).to_dict()
+        if "azure" in model:
+            client = AzureOpenAI(
+                api_key=api_key,
+                api_version=option,
+                azure_endpoint=url,
+            )
+            completion = client.chat.completions.create(
+                model=model.replace("azure-", ""),
+                messages=msgs,
+            ).to_dict()
+        else:
+            client = OpenAI(
+                api_key=api_key,
+                base_url=url,
+            )
+            completion = client.chat.completions.create(
+                model=model,
+                messages=msgs,
+            ).to_dict()
 
     return {
         'model': model,
