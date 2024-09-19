@@ -1,15 +1,15 @@
 #!/bin/bash
-PROJECT_PATH=...
+PROJECT_PATH=/Users/ronglong/PycharmProjects/mutil-agent-selection
 
 export PYTHONPATH=$PROJECT_PATH
 
-cd $PROJECT_PATH/backend || exit
+cd $PROJECT_PATH/server || exit
 #source venv/bin/activate
 python run.py &
 
 FLASK_PID=$!
 
-cd $PROJECT_PATH/frontend || exit
+cd $PROJECT_PATH || exit
 #npm install
 #nvm use 17
 npm start &
