@@ -25,3 +25,8 @@ def process_msgs(responses: List[Dict]) -> List[Dict]:
                 'color': color,
             })
     return msgs
+
+
+def resort_msgs(responses: List[Dict],question) -> List[Dict]:
+    msgs = process_msgs(responses)
+

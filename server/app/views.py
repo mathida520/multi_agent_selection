@@ -5,7 +5,7 @@ import json
 from dotenv import load_dotenv
 from .services.generation import fetch_api_responses,  fetch_api_response
 from .services.model_handler import get_model_list
-from .services.msg_handler import process_msgs
+from .services.msg_handler import process_msgs, resort_msgs
 from .services.ranking import rerank_models, rerank_responses
 from .services.task_handler import task_classification
 #### 这个鬼地方别动
@@ -72,7 +72,7 @@ def gen_batch(request_json: Dict):
             )
             responses.append(response)
 
-    responses = process_msgs(responses)
+    responses = resort_msgs(responses,request_json["messages"]["content"])
     return responses
 
 
