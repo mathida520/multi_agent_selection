@@ -55,8 +55,12 @@ def resort_msgs(responses: List[Dict],question) -> List[Dict]:
     model_list = [msgs[i]["model"] for i in range(len(msgs))]
     message_list = [msgs[i]["message"] for i in range(len(msgs))]
     sorted_models= sort_message(model_list, message_list, question)[1:-1].split("，")
+    if len(sorted_models)<1:
+        sorted_models = sort_message(model_list, message_list, question)[1:-1].split(", ")
+    print(sorted_models)
     resort_ms = []
     for i in sorted_models:
         for j in msgs:
             if i == j["model"]: resort_ms.append(j)
+    print(resort_ms)
     return resort_ms
