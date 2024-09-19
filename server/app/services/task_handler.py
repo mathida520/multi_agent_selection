@@ -58,6 +58,7 @@ def task_classification(content):
         'Content-Type': 'application/json'
     }
     response = RequestHandler.post(LOCAL_CHAT_URL, headers, payload, timeout = 10)
+    response = response.json()
     arguments = response["message"]["tool_calls"][0]["function"]["arguments"]
     print(arguments)
     task = arguments["task"]

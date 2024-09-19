@@ -23,7 +23,7 @@ def process_msgs(responses: List[Dict]) -> List[Dict]:
             msgs.append({
                 'model': model,
                 'message': response.get('response', {}).get('choices', [{}])[0].get('message', {}).get('content', ""),
-                'images': response.get('response', {}).get('choices', [{}])[0].get('images', []),
+                'images': response.get('response', {}).get('images', []),
                 'color': color,
             })
     return msgs
