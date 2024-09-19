@@ -7,6 +7,9 @@ from RequestHandler import RequestHandler
 
 LOCAL_CHAT_URL = os.getenv('LOCAL_CHAT_URL')
 
+PICTURE_GENERATION= "pictureGeneration"
+
+
 def task_classification(content):
     payload = json.dumps({
         "model": "llama3.1",
@@ -33,7 +36,7 @@ def task_classification(content):
                             "task": {
                                 "type": "string",
                                 "enum": [
-                                    "pictureGeneration",
+                                    PICTURE_GENERATION,
                                     "undefinedTask"
                                 ],
                                 "description": "The supported tasks. AI should choose one task based on user's message."

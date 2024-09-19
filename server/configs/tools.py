@@ -1,3 +1,5 @@
+from app.services.task_handler import PICTURE_GENERATION
+
 tools = [
     {
         "type": "function",
@@ -32,7 +34,7 @@ tools = [
                     },
                     "task": {
                         "type": "string",
-                        "enum": ["pictureGeneration", "undefinedTask"],
+                        "enum": [PICTURE_GENERATION, "undefinedTask"],
                         "description": "The supported tasks. AI should choose one task based on user's message.",
                     },
                 }

@@ -66,8 +66,6 @@ def task_classify(request_json: Dict):
     content = request_json["messages"][0]["content"]
     return task_classification(content)
 
-# todo 需要添加根据任务类型获取模型名字列表的逻辑
+
 def get_models(task_typs):
-    models_info = get_models_dict()
-    models = list(models_info.keys())
-    return models
+    return get_models(task_typs)
