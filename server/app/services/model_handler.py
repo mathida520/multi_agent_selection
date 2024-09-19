@@ -1,6 +1,6 @@
 from app.services.task_handler import PICTURE_GENERATION
 
-general=[]
+general=["azure-gpt-4-turbo","azure-gpt-4o","llama-70b-chat","llama-13b-chat"]
 image_generation=[]
 
 def get_model_list(task_type):
