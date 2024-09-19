@@ -46,7 +46,7 @@ class RequestHandler:
         
 if __name__ == "__main__":
     headers = {
-        "Authorization": "Bearer OhkOjKABesrD2A3f24bBDNkyj9qr5LDW3PLdTtY-"
+        "Authorization": "api Key"
     }
     payload = {
         "prompt": "cyberpunk cat"
