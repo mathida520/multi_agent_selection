@@ -1,3 +1,4 @@
+import base64
 from typing import List, Dict
 
 import os
@@ -7,6 +8,7 @@ from openai import OpenAI
 from openai.lib.azure import AzureOpenAI
 
 from app.services.RequestHandler import RequestHandler
+from app.services.model_handler import image_generation
 from app.services.task_handler import PICTURE_GENERATION
 
 API_CONFIG_PATH = os.getenv('API_CONFIG_PATH')
@@ -46,19 +48,22 @@ def get_local_response(request_json: Dict, tools: list = []) -> Dict:
     return response
 
 
-def fetch_api_response(model, api_key, url, option, msgs, task) -> Dict:
+def fetch_api_response(model, api_key, url, option, msgs) -> Dict:
     # currently, only 2 missions: {PICTURE_GENERATION, general_chat}
     # the models used for these missions are different, no intersect. So at current stage, we use if else to construct payloads for different missions
     # TODO: encapulate a logic for payload generation based on mission type
-    if task == PICTURE_GENERATION:
+    if model in image_generation:
         payload = {
-            "prompt": msgs
+            "prompt": msgs[0]["content"]
         }
         headers = {
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json"
         }
-        completion = RequestHandler.post(url, headers=headers, json=payload, timeout=10)
+        completion = RequestHandler.post(url, headers=headers, json=payload, timeout=600)
+        print(completion)
+        print(type(completion))
+        completion={"images":[completion]}
     else:
         if "azure" in model:
             client = AzureOpenAI(
