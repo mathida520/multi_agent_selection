@@ -20,6 +20,10 @@ def task_classification(content):
             }
         ],
         "stream": False,
+        "options": {
+            "seed": 101,
+            "temperature": 0
+        },
         "tools": [
             {
                 "type": "function",
