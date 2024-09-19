@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 
+from .services.generation import get_local_response
 from .views import gen_primary, gen_auxi, task_classify, get_models
-from services.generation import get_local_response
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
 

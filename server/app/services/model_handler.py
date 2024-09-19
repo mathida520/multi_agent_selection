@@ -3,7 +3,7 @@ from app.services.task_handler import PICTURE_GENERATION
 general=[]
 image_generation=[]
 
-def get_models(task_type):
+def get_model_list(task_type):
     if task_type == PICTURE_GENERATION:
         return image_generation
     else:

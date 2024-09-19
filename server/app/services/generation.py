@@ -2,11 +2,11 @@ from typing import List, Dict
 
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from RequestHandler import RequestHandler
 
 from openai import OpenAI
 from openai.lib.azure import AzureOpenAI
 
+from app.services.RequestHandler import RequestHandler
 
 API_CONFIG_PATH = os.getenv('API_CONFIG_PATH')
 LOCAL_CHAT_URL = os.getenv('LOCAL_CHAT_URL')

@@ -2,8 +2,7 @@ import http.client
 import json
 import os
 
-from RequestHandler import RequestHandler
-
+from app.services.RequestHandler import RequestHandler
 
 LOCAL_CHAT_URL = os.getenv('LOCAL_CHAT_URL')
 
@@ -60,5 +59,6 @@ def task_classification(content):
     }
     response = RequestHandler.post(LOCAL_CHAT_URL, headers, payload, timeout = 10)
     arguments = response["message"]["tool_calls"][0]["function"]["arguments"]
-    task = json.loads(arguments)["task"]
+    print(arguments)
+    task = arguments["task"]
     return task

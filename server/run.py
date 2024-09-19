@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from server.app import create_app
+from app import create_app
 
 load_dotenv()
 flask_app = create_app()
