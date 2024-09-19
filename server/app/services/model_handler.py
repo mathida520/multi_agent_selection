@@ -1,6 +1,6 @@
 from app.services.task_handler import PICTURE_GENERATION
 
-general=["gpt-4o","qwen-plus","llama-70b-chat","llama-13b-chat"]
+general=["gpt-4o","qwen-plus","llama-70b-chat","llama-13b-chat","glm-4"]
 image_generation=["dreamshaper-8-lcm","stable-diffusion-xl-base-1.0"]
 
 def get_model_list(task_type):
