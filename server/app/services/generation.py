@@ -61,9 +61,7 @@ def fetch_api_response(model, api_key, url, option, msgs) -> Dict:
             "Content-Type": "application/json"
         }
         completion = RequestHandler.post(url, headers=headers, json=payload, timeout=600)
-        print(completion)
-        print(type(completion))
-        completion={"images":[completion]}
+        completion={"images":[base64.b64encode(completion.content).decode('utf-8')]}
     else:
         if "azure" in model:
             client = AzureOpenAI(
