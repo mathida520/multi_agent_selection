@@ -13,16 +13,33 @@ LOCAL_CHAT_URL = os.getenv('LOCAL_CHAT_URL')
 
 
 # todo add function_call
-def get_local_response(request_json: Dict) -> Dict:
-    payload = {
-        "model": "llama3.1",
-        "messages": request_json.get("message", ""),
-        "stream": False,
-        "options": {
-            "seed": 101,
-            "temperature": 0
-        },
-    }
+def get_local_response(request_json: Dict, tools: list = []) -> Dict:
+    if tools:
+        payload = {
+            "model": "llama3.1",
+            "messages": [
+                {
+                    "role": "user",
+                    "content": request_json.get('message', ''),
+                }
+            ],
+            "stream": False,
+            "options": {
+                "seed": 101,
+                "temperature": 0
+            },
+            "tools": tools
+        }
+    else: 
+        payload = {
+            "model": "llama3.1",
+            "messages": request_json.get("message", ""),
+            "stream": False,
+            "options": {
+                "seed": 101,
+                "temperature": 0
+            },
+        }
     response = RequestHandler.post(LOCAL_CHAT_URL, headers={"Content-Type": "application/json"}, json=payload, timeout = 10)
     
     return response
