@@ -1,0 +1,13 @@
+FROM milvusdb/milvus:v2.3.21
+
+ENV ETCD_ENDPOINTS=etcd:2379
+ENV MINIO_ADDRESS=minio:9000
+
+EXPOSE 19530
+EXPOSE 9091
+EXPOSE 2379
+EXPOSE 2222
+EXPOSE 80
+EXPOSE 443
+
+CMD ["milvus", "run", "standalone"]
