@@ -63,6 +63,8 @@ services:
     build:
       context: ./milvus_containers/attu_continer
     container_name: milvus_attu_container
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - "8000:3000"
     working_dir: /app
