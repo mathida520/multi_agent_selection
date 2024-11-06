@@ -141,7 +141,7 @@ services:
     environment:
       MILVUS_URL: standalone:19530
     ports:
-      - "3000:3000"
+      - "8000:3000"
     depends_on:
       - "standalone"
 networks:
