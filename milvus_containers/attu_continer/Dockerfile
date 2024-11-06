@@ -3,7 +3,7 @@ RUN apt-get update && apt-get install -y curl
 WORKDIR /app
 
 ENV MILVUS_URL=http://standalone:19530
-ENV HOST_URL=http://127.0.0.1:8000
+ENV HOST_URL=http://host.docker.internal:8000
 ENV NODE_VERSION=18.19.0
 ENV YARN_VERSION=1.22.19
 
